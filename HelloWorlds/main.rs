@@ -9,4 +9,30 @@ fn main() {
     println!("f(y) = {}", f(y));
     println!("f(10) = {}", f(10));
     println!("f(20) = {}", f(20)); 
+        let a: i32 = 10;
+    let b: i32 = 20;
+    let c: i32 = a + b;
+    println!("{} + {} = {}", a, b, c);
+    for i in 0..10 {
+        println!("{}", i);
+    }
+    let mut i: i32 = 0;
+    loop {
+        println!("{}", i);
+        i += 1;
+        if i == 10 {
+            break;
+        }
+    }
+    let mut i: i32 = 0;
+    while i < 10 {
+        println!("{}", i);
+        i += 1;
+    }
+    fn is_divisible_by(lhs: u32, rhs: u32) -> bool {
+        if rhs == 0 {
+            return false;
+        }
+        lhs % rhs == 0
+    }
 }
