@@ -11,15 +11,16 @@ fn main() {
     println!("f(20) = {}", f(20)); 
     let mut z: i32 = 10;
     z = 20;
-    println!("{}", z);
-    
-        let a: i32 = 10;
+    println!("Is 'z' 10 or 20? z = {}", z);
+    let a: i32 = 10;
     let b: i32 = 20;
     let c: i32 = a + b;
     println!("{} + {} = {}", a, b, c);
+    println!("for loop");
     for i in 0..10 {
         println!("{}", i);
     }
+    println!("normal loop");
     let mut i: i32 = 0;
     loop {
         println!("{}", i);
@@ -28,15 +29,19 @@ fn main() {
             break;
         }
     }
+    println!("while loop");
     let mut i: i32 = 0;
     while i < 10 {
         println!("{}", i);
         i += 1;
     }
+    println!("if else");
     fn is_divisible_by(lhs: u32, rhs: u32) -> bool {
         if rhs == 0 {
             return false;
         }
         lhs % rhs == 0
     }
+    println!("{} is divisible by {}? {}", 9, 3, is_divisible_by(9, 3));
+    println!("{} is divisible by {}? {}", 9, 2, is_divisible_by(9, 2));
 }
