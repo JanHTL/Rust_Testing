@@ -9,6 +9,10 @@ fn main() {
     println!("f(y) = {}", f(y));
     println!("f(10) = {}", f(10));
     println!("f(20) = {}", f(20)); 
+    let mut z: i32 = 10;
+    z = 20;
+    println!("{}", z);
+    
         let a: i32 = 10;
     let b: i32 = 20;
     let c: i32 = a + b;
