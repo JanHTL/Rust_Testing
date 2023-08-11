@@ -76,10 +76,10 @@ fn main() {
     println!("f(10) = {}", f(10));
     println!("f(20) = {}", f(20));
     println!("methods");
-    #[derive(Debug)]    // so we can inspect the state in a minute 
     trait Print{
         fn printStruct(&self);
     }
+    #[derive(Debug)]    // so we can inspect the state in a minute 
     struct Point {
         x: f64,
         y: f64,
@@ -147,5 +147,53 @@ fn main() {
             },
         }
     }
-
+    let person = Person::Height(18);
+    let amira = Person::Weight(10);
+    let dave = Person::Info { name: "Dave".to_owned(), height: 72 };
+    let rebecca = Person::Scientist;
+    let rohan = Person::Engineer;
+    inspect(person);
+    inspect(amira);
+    inspect(dave);
+    inspect(rebecca);
+    inspect(rohan);
+    println!("option");
+    let x = 3.0;
+    let y = 2.0;
+    let result: Option<f64> =
+        if y != 0.0 { Some(x/y) } else { None };
+    println!("{:?}", result);
+    match result {
+        Some(z) => println!("{}/{} = {}", x, y, z),
+        None    => println!("Cannot divide {} by {}", x, y),
+    }
+    if let Some(z) = result {
+        println!("z = {}", z);
+    }
+    println!("arrays");
+    let mut a = [1, 2, 3];
+    println!("a = {:?}", a);
+    a = [3, 2, 1];
+    println!("a = {:?}", a);
+    println!("slices");
+    let mut a = [1, 2, 3];
+    println!("a = {:?}", a);
+    let b = &mut a[1..];
+    b[0] = 7;
+    b[1] = 8;
+    println!("b = {:?}", b);
+    println!("a = {:?}", a);
+    println!("vectors");
+    let mut v = vec![1, 2, 3, 4, 5];
+    println!("v = {:?}", v);
+    v.push(6);
+    println!("v = {:?}", v);
+    println!("hash maps");
+    use std::collections::HashMap;
+    let mut shapes = HashMap::new();
+    shapes.insert(String::from("triangle"), 3);
+    shapes.insert(String::from("square"), 4);
+    println!("shapes = {:?}", shapes);
+    println!("shapes[\"triangle\"] = {:?}", shapes["triangle"]);
+    println!("shapes[\"square\"] = {:?}", shapes["square"]);
 }
