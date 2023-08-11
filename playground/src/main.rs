@@ -77,6 +77,9 @@ fn main() {
     println!("f(20) = {}", f(20));
     println!("methods");
     #[derive(Debug)]    // so we can inspect the state in a minute 
+    trait Print{
+        fn printStruct(&self);
+    }
     struct Point {
         x: f64,
         y: f64,
@@ -111,17 +114,20 @@ fn main() {
             self.p2.y += y;
         }
     }
+    impl Print for Rectangle {
+        fn printStruct(&self) {
+            println!("Rectangle: p1 = {:?}, p2 = {:?}", self.p1, self.p2);
+            println!("Area: {}", self.area());
+            println!("Perimeter: {}", self.perimeter());
+        }
+    }
     let mut rect = Rectangle {
         p1: Point::origin(),
         p2: Point::new(3.0, 4.0),
     };
-    println!("Rectangle: p1 = {:?}, p2 = {:?}", rect.p1, rect.p2);
-    println!("Area: {}", rect.area());
-    println!("Perimeter: {}", rect.perimeter());
+    rect.printStruct();
     rect.translate(1.0, 0.0);
-    println!("Rectangle: p1 = {:?}, p2 = {:?}", rect.p1, rect.p2);
-    println!("Area: {}", rect.area());
-    println!("Perimeter: {}", rect.perimeter());
+    rect.printStruct();
     println!("enums");
     enum Person {
         Engineer,
